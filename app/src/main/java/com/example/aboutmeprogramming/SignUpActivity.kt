@@ -1,5 +1,7 @@
 package com.example.aboutmeprogramming
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -7,6 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 
 class SignUpActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -37,6 +41,11 @@ class SignUpActivity : AppCompatActivity() {
 
 
             //종료!
+            val result = Intent()
+            result.putExtra("id",inputId)
+            result.putExtra("pw",inputPw)
+            setResult(Activity.RESULT_OK,result)
+
             Toast.makeText(this, "회원가입 완료!", Toast.LENGTH_SHORT).show()
 
             finish()

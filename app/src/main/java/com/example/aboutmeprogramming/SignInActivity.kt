@@ -1,13 +1,32 @@
 package com.example.aboutmeprogramming
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 
 class SignInActivity : AppCompatActivity() {
+
+
+    //결과값을 돌려받기 위한 런처 설정
+    private val activityResultLanuncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            result ->
+            if(result.resultCode == Activity.RESULT_OK){
+                val id = findViewById<EditText>(R.id.editText_id)
+                val pw = findViewById<EditText>(R.id.editText_pw)
+
+                val resultId =result.data?.getStringExtra("id")
+                val resultPw =result.data?.getStringExtra("pw")
+                id.setText(resultId)
+                pw.setText(resultPw)
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -16,7 +35,6 @@ class SignInActivity : AppCompatActivity() {
         val btn_signUp = findViewById<Button>(R.id.btn_signUp)
         val id = findViewById<EditText>(R.id.editText_id)
         val pw = findViewById<EditText>(R.id.editText_pw)
-
 
         //로그인 버튼 눌렸을때
         btn_login.setOnClickListener {
@@ -39,8 +57,10 @@ class SignInActivity : AppCompatActivity() {
         //회원가입 버튼 눌렸을때
         btn_signUp.setOnClickListener {
             var intent = Intent(this,SignUpActivity::class.java)
-            startActivity(intent)
+//            startActivity(intent)
+            activityResultLanuncher.launch(intent)
             Toast.makeText(this,"회원가입 액티비티!",Toast.LENGTH_SHORT).show()
         }
+
     }
 }
