@@ -14,18 +14,14 @@ class HomeActivity : AppCompatActivity() {
 
         val btn_exit = findViewById<Button>(R.id.btn_exit)
 
-        //인텐드에서 값을 받는다.
-        val strData = intent.getStringExtra("id")
-        val idTextView = findViewById<TextView>(R.id.textView_id)
-
-        //받은 값을 입력
-        idTextView.setText(idTextView.text.toString() + " ${strData}")
-
         //버튼 기능
         btn_exit.setOnClickListener {
             finish()
         }
 
+        //id의 경우는 인텐드에서 값을 받는다.
+        val strData = intent.getStringExtra("id")
+        setTextTextView(R.id.textView_id,strData.toString())
         //이름 나이 MBTI 입력하기
         setTextTextView(R.id.textView_name, "이상오")
         setTextTextView(R.id.textView_age, "30")
