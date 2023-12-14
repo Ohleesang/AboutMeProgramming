@@ -10,7 +10,7 @@ import android.widget.Toast
 class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_sign_in)
 
         val btn_login = findViewById<Button>(R.id.btn_login)
         val btn_signUp = findViewById<Button>(R.id.btn_signUp)
