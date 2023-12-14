@@ -19,7 +19,7 @@
             android:layout_width="203dp"
             android:layout_height="211dp"
             android:layout_marginTop="32dp"
-            android:src="@drawable/duck"
+            android:src="@drawable/duck_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
