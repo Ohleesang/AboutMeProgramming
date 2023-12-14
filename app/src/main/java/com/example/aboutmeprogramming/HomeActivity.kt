@@ -13,7 +13,7 @@ class HomeActivity : AppCompatActivity() {
 
         //인텐드에서 값을 받는다.
         val strData = intent.getStringExtra("id")
-        val textView = findViewById<TextView>(R.id.textView_id_homeActivity)
-        textView.setText(strData)
+//        val textView = findViewById<TextView>(R.id.textView_id_homeActivity)
+//        textView.setText(strData)
     }
 }
