@@ -12,13 +12,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 class SignInActivity : AppCompatActivity() {
 
 
+    private val id by lazy{ findViewById<EditText>(R.id.editText_id)}
+    private val pw by lazy{ findViewById<EditText>(R.id.editText_pw)}
+
+    //콜백 : 어떤 기능이 수행됬을때, 이 특정 시점에 수행하고 싶을때
     //결과값을 돌려받기 위한 런처 설정
     private val activityResultLanuncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             result ->
             if(result.resultCode == Activity.RESULT_OK){
-                val id = findViewById<EditText>(R.id.editText_id)
-                val pw = findViewById<EditText>(R.id.editText_pw)
+//                val id = findViewById<EditText>(R.id.editText_id)
+//                val pw = findViewById<EditText>(R.id.editText_pw)
 
                 val resultId =result.data?.getStringExtra("id")
                 val resultPw =result.data?.getStringExtra("pw")
@@ -33,8 +37,8 @@ class SignInActivity : AppCompatActivity() {
 
         val btn_login = findViewById<Button>(R.id.btn_login)
         val btn_signUp = findViewById<Button>(R.id.btn_signUp)
-        val id = findViewById<EditText>(R.id.editText_id)
-        val pw = findViewById<EditText>(R.id.editText_pw)
+//        val id = findViewById<EditText>(R.id.editText_id)
+//        val pw = findViewById<EditText>(R.id.editText_pw)
 
         //로그인 버튼 눌렸을때
         btn_login.setOnClickListener {
